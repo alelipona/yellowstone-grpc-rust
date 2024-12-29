@@ -1,0 +1,13 @@
+[package]
+name = "yellowstone-grpc-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.40"
+futures = "0.3.30"
+tonic = { version = "0.12.3", features = ["tls", "tls-webpki-roots", "tls-roots"] }
+tokio = { version = "1.42.0" , features = ["full", "rt-multi-thread"]}
+yellowstone-grpc-client = {  version = "4.1.0" }
+yellowstone-grpc-proto = {  version = "4.1.1" }
+rustls = { version = "0.23.20", features = ["ring"] }
