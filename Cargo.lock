@@ -5059,11 +5059,14 @@ name = "yellowstone-grpc-rust"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "base64 0.22.1",
+ "borsh 1.5.3",
  "chrono",
  "dotenvy",
  "futures",
  "log",
  "pretty_env_logger",
+ "regex",
  "rustls 0.23.20",
  "serde",
  "serde_json",

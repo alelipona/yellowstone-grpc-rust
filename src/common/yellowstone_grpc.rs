@@ -18,10 +18,10 @@ use solana_transaction_status::{EncodedTransactionWithStatusMeta, UiTransactionE
 
 #[allow(dead_code)]
 pub struct TransactionPretty {
-    slot: u64,
-    signature: Signature,
-    is_vote: bool,
-    tx: EncodedTransactionWithStatusMeta,
+    pub slot: u64,
+    pub signature: Signature,
+    pub is_vote: bool,
+    pub tx: EncodedTransactionWithStatusMeta,
 }
 impl fmt::Debug for TransactionPretty {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
