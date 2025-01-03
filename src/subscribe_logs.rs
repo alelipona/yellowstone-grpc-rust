@@ -97,11 +97,11 @@ mod subscribe_tx_tests {
             if let Ok(swap_type) = get_swap_type(&trade_raw) {
                 match swap_type {
                     SwapType::Raydium => {
-                        let event = RaydiumEvent::parse_logs::<SwapBaseInLog>(logs.to_vec());
+                        let event = RaydiumEvent::parse_logs::<SwapBaseInLog>(logs);
                         info!("RaydiumEvent {:#?}", event);
                     }
                     SwapType::Pump => {
-                        let event = PumpEvent::parse_logs::<TradeEvent>(logs.to_vec());
+                        let event = PumpEvent::parse_logs::<TradeEvent>(logs);
                         info!("PumpEvent {:#?}", event);
                     }
                 }
@@ -120,13 +120,8 @@ mod subscribe_tx_tests {
 
             let program_index = account_keys
                 .iter()
-                .position(|item| item == &AMM_V4 || item == &PUMP_PROGRAM_ID);
-
-            if program_index.is_none() {
-                return Err(AppError::from(anyhow!("swap type program_id not found")));
-            }
-
-            let program_index = program_index.unwrap();
+                .position(|item| item == &AMM_V4 || item == &PUMP_PROGRAM_ID)
+                .ok_or(anyhow!("swap type program_id not found"))?;
 
             let program_id = account_keys[program_index];
             let _type = match program_id {

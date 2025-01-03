@@ -73,7 +73,7 @@ impl EventTrait for SwapBaseInLog {
 pub struct PumpEvent {}
 
 impl PumpEvent {
-    pub fn parse_logs<T: EventTrait + Clone>(logs: Vec<String>) -> Option<T> {
+    pub fn parse_logs<T: EventTrait + Clone>(logs: &Vec<String>) -> Option<T> {
         let mut event: Option<T> = None;
         if !logs.is_empty() {
             let logs_iter = logs.iter().peekable();
@@ -97,7 +97,7 @@ impl PumpEvent {
 pub struct RaydiumEvent {}
 
 impl RaydiumEvent {
-    pub fn parse_logs<T: EventTrait + Clone>(logs: Vec<String>) -> Option<T> {
+    pub fn parse_logs<T: EventTrait + Clone>(logs: &Vec<String>) -> Option<T> {
         let mut event: Option<T> = None;
 
         if !logs.is_empty() {
