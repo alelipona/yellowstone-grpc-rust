@@ -1,26 +1,30 @@
-# yellowstone-grpc-rust
-
-Yellowstone gRPC 是获取 Solana 链上数据最快的方式。数据以流的方式推送，客户端需要配置订阅来获取和解析数据。
-
-本教程旨在提供一些简单的订阅配置例子，帮助你快速熟悉此工具。
+Привет! Конечно, вот перевод на английский:
 
 ---
 
-## subscribe-tx 订阅账户交易
+# yellowstone-grpc-rust
 
-``` bash
+Yellowstone gRPC is the fastest way to fetch data from the Solana blockchain. Data is streamed, and clients need to configure subscriptions to receive and parse the data.
+
+This tutorial aims to provide some simple subscription configuration examples to help you quickly get familiar with this tool.
+
+---
+
+## subscribe-tx: Subscribe to Account Transactions
+
+```bash
 # cargo test --package yellowstone-grpc-rust --bin yellowstone-grpc-rust -- subscribe_tx::subscribe_tx_tests::test_subscribe_tx --exact --show-output
 ```
 
-## subscribe-logs 订阅 token 交易，解析Logs会包含池子的最新数据
+## subscribe-logs: Subscribe to Token Transactions and Parse Logs to Include the Latest Data of the Pool
 
-``` bash
+```bash
 # cargo test --package yellowstone-grpc-rust --bin yellowstone-grpc-rust -- subscribe_logs::subscribe_tx_tests --show-output
 ```
 
-### PUMP 池子
+### PUMP Pool
 
-``` rust
+```rust
 PumpEvent Some(
     TradeEvent {
         mint: Aa4QWNkS3RLUv7DA9BM1a2Hzm4HDQo5PyRefqDJnpump,
@@ -39,7 +43,7 @@ PumpEvent Some(
 
 ### RAYDIUM
 
-``` rust
+```rust
 RaydiumEvent Some(
     SwapBaseInLog {
         log_type: 3,
@@ -53,3 +57,5 @@ RaydiumEvent Some(
     },
 )
 ```
+
+---
